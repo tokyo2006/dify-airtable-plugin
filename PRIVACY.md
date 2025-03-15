@@ -1,3 +1,3 @@
-## Privacy
+# Privacy
 
-!!! Please fill in the privacy policy of the plugin.
+Here is [Airtalbe privacy policy](https://www.airtable.com/company/privacy)
