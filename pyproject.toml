@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "airtable"
+version = "0.1.0"
+description = "A tool that can operate on the created airtable"
+authors = ["Chen Zeng <rurounikexin@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyairtable = "^3.0.2"
+dify-plugin = "^0.0.1b73"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

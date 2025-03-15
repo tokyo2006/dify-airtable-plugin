@@ -1,0 +1,39 @@
+version: 0.0.1
+type: plugin
+author: chenzeng
+name: airtable
+label:
+  en_US: Airtable
+  ja_JP: Airtable
+  zh_Hans: Airtable
+  pt_BR: Airtable
+description:
+  en_US: Tools that can be operated on Airtable
+  ja_JP: Airtableで操作できるツールです
+  zh_Hans: 可以在Airtable上操作的工具
+  pt_BR: Ferramentas que podem ser operadas no Airtable
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+plugins:
+  tools:
+    - provider/airtable.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-03-14T09:44:52.803406+08:00
+privacy: PRIVACY.md
+verified: false
