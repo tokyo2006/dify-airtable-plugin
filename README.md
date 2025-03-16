@@ -9,6 +9,7 @@ A plugin tool for operating Airtable, supporting record creation and other opera
 ## Features
 
 - Support creating records in Airtable
+- Support get all records from existing table
 - Simple and easy-to-use API interface
 
 ## Prerequisites
