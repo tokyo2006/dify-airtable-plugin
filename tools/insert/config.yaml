@@ -53,4 +53,4 @@ parameters:
     form: llm
 extra:
   python:
-    source: tools/airtable_insert.py
+    source: tools/insert/invoke.py

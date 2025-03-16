@@ -27,7 +27,7 @@ credentials_for_provider:
       zh_Hans: 从 Airtable 获取您的 Airtable Token
     url: https://airtable.com/create/tokens
 tools:
-  - tools/airtable_insert.yaml
+  - tools/insert/config.yaml
 extra:
   python:
     source: provider/airtable.py
