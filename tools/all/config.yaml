@@ -1,0 +1,43 @@
+identity:
+  name: airtable_all
+  author: chenzeng
+  label:
+    en_US: airtable_all
+    zh_Hans: 获取所有记录
+    pt_BR: airtable_all
+description:
+  human:
+    en_US: Get all records in table
+    zh_Hans: 在表中获取所有的记录
+    pt_BR: Obter todos os registros em uma tabela
+  llm: Get all records in table
+parameters:
+  - name: baseId
+    type: string
+    required: true
+    label:
+      en_US: Base ID
+      zh_Hans: Base ID
+      pt_BR: Base ID
+    human_description:
+      en_US: you can find it here https://support.airtable.com/v1/docs/finding-airtable-ids#finding-base-table-and-view-ids-from-urls
+      zh_Hans: 你可以在这里找到它 https://support.airtable.com/v1/docs/finding-airtable-ids#finding-base-table-and-view-ids-from-urls
+      pt_BR: you can find it here https://support.airtable.com/v1/docs/finding-airtable-ids#finding-base-table-and-view-ids-from-urls
+    llm_description: workspace Base id
+    form: llm
+  - name: tableId
+    type: string
+    required: true
+    label:
+      en_US: Table ID
+      zh_Hans: Table ID
+      pt_BR:  Table ID
+    human_description:
+      en_US: you can find it here https://support.airtable.com/v1/docs/finding-airtable-ids#finding-base-table-and-view-ids-from-urls
+      zh_Hans: 你可以在这里找到它 https://support.airtable.com/v1/docs/finding-airtable-ids#finding-base-table-and-view-ids-from-urls
+      pt_BR: you can find it here https://support.airtable.com/v1/docs/finding-airtable-ids#finding-base-table-and-view-ids-from-urls
+    llm_description: workspace Table id
+    form: llm
+extra:
+  python:
+    source: tools/all/invoke.py

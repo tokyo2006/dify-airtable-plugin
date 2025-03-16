@@ -28,6 +28,7 @@ credentials_for_provider:
     url: https://airtable.com/create/tokens
 tools:
   - tools/insert/config.yaml
+  - tools/all/config.yaml
 extra:
   python:
     source: provider/airtable.py
