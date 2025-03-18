@@ -43,7 +43,9 @@ A plugin tool for operating Airtable, supporting record creation and other opera
 
 ## Usage Example
 
-### Start by creating your own table in Airtable, something like this
+### Create a record
+
+#### Start by creating your own table in Airtable, something like this
 
 ![table](_assets/table.png)
 
@@ -59,4 +61,34 @@ Example of creating a record:
   "DateTime": "2025-03-15",
   "Memo": "Filled up 52 yuan worth of gas at the gas station"
 }
+```
+
+#### Get all records
+
+All the records can be returned by providing baseId and tableId in the tool.
+
+The output results are printed in text. The following is an example of the output:
+
+```json
+[
+  {
+    "id": "rec123",
+    "fields": {
+      "Spend": 52,
+      "Store": "Gas station",
+      "Item": "Gas",
+      "DateTime": "2025-03-15",
+      "Memo": "Filled up 52 yuan worth of gas at the gas station"
+    },
+    {
+      "id": "rec456",
+      "fields": {
+        "Spend": 100,
+        "Store": "Supermarket",
+        "Item": "Milk",
+        "DateTime": "2025-03-16",
+        "Memo": "Bought 100 yuan worth of milk at the supermarket"
+      }
+    }
+]
 ```

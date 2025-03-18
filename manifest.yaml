@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 0.1.1
 type: plugin
 author: chenzeng
 name: airtable
@@ -26,7 +26,7 @@ plugins:
   tools:
     - provider/airtable.yaml
 meta:
-  version: 1.0.0
+  version: 0.1.1
   arch:
     - amd64
     - arm64

@@ -9,8 +9,8 @@
 ## 功能特点
 
 - 支持在Airtable中创建记录
-- 简单易用的API接口
 - 支持从现有表中获取所有记录
+- 简单易用的API接口
 
 ## 前置要求
 
@@ -43,7 +43,9 @@
 
 ## 使用示例
 
-### 首先在Airtable中创建一个自己的表格，类似这样的
+### 创建记录
+
+#### 首先在Airtable中创建一个自己的表格，类似这样的
 
 ![table](_assets/table.png)
 
@@ -59,4 +61,34 @@
   "DateTime": "2025-03-15",
   "Memo": "在加油站加了52元的汽油"
 }
+```
+
+#### 获取所有记录
+
+只要在工具里面提供baseId和tableId，就可以获取到所有的记录了
+
+输出的结果以文本输出，以下是输出例子:
+
+```json
+[
+  {
+    "id": "rec123",
+    "fields": {
+      "Spend": 52,
+      "Store": "Gas station",
+      "Item": "Gas",
+      "DateTime": "2025-03-15",
+      "Memo": "Filled up 52 yuan worth of gas at the gas station"
+    },
+    {
+      "id": "rec456",
+      "fields": {
+        "Spend": 100,
+        "Store": "Supermarket",
+        "Item": "Milk",
+        "DateTime": "2025-03-16",
+        "Memo": "Bought 100 yuan worth of milk at the supermarket"
+      }
+    }
+]
 ```

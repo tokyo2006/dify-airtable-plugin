@@ -11,7 +11,8 @@ identity:
     pt_BR: A tool that can operate on the created airtable
   icon: icon.svg
   tags:
-    - other
+    - utilities
+    - productivity
 credentials_for_provider:
   airtable_token:
     type: secret-input

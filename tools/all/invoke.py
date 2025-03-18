@@ -17,7 +17,36 @@ class AirtableToolAll(Tool):
         table = api.table(baseId, tableId)
         try:
             records = table.all()
-            result = json.dumps(records, default=str)
-            yield self.create_text_message(result)
+            if len(records) == 0:
+                yield self.create_text_message("No records found")
+                return
+            else:
+                '''
+                返回的数据是 [ {
+                    'id': 'rec123',
+                    'fields': {
+                        'Name': 'John',
+                        'Age': 30,
+                        'Email': 'EMAIL'
+                    }
+                    'id': 'rec123',
+                    'fields': {
+                        'Name': 'John',
+                        'Age': 30,
+                        'Email': 'EMAIL'
+                    }
+                ]
+                需要处理为 [
+                    {'id':'rec123','Name': 'John','Age': 30,'Email': 'EMAIL'},
+                    {'id':'rec123','Name': 'John','Age': 30,'Email': 'EMAIL'}
+                ]
+                '''
+                processed_records = []
+                for record in records:
+                    processed_record = {'id': record['id']}
+                    processed_record.update(record['fields'])
+                    processed_records.append(processed_record)
+                result = json.dumps(processed_records, default=str)
+                yield self.create_text_message(result)
         except Exception as e:
             yield self.create_text_message(f"Error：{e}")
