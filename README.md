@@ -5,6 +5,7 @@ A plugin tool for operating Airtable, supporting record creation and other opera
 ## What's Airtable?
 
 [Airtable](https://airtable.com/) is a cloud-based project management tool that blends a traditional spreadsheet with the robust features of a database. It allows businesses to organize their workflow, data, and records in a flexible and visually appealing way without the need for any coding.
+Repository: [dify-airtable-plugin](https://github.com/tokyo2006/dify-airtable-plugin)
 
 ## Features
 
@@ -63,32 +64,64 @@ Example of creating a record:
 }
 ```
 
-#### Get all records
+#### Record Retrieval
 
-All the records can be returned by providing baseId and tableId in the tool.
-
-The output results are printed in text. The following is an example of the output:
+By providing `baseId` and `tableId` in the tool, you can retrieve records. By default, all records are fetched. The output is returned as text. Example output:
 
 ```json
 [
   {
     "id": "rec123",
-    "fields": {
-      "Spend": 52,
-      "Store": "Gas station",
-      "Item": "Gas",
-      "DateTime": "2025-03-15",
-      "Memo": "Filled up 52 yuan worth of gas at the gas station"
-    },
-    {
-      "id": "rec456",
-      "fields": {
-        "Spend": 100,
-        "Store": "Supermarket",
-        "Item": "Milk",
-        "DateTime": "2025-03-16",
-        "Memo": "Bought 100 yuan worth of milk at the supermarket"
-      }
-    }
+    "Spend": 52,
+    "Store": "Gas station",
+    "Item": "Gas",
+    "DateTime": "2025-03-15",
+    "Memo": "Filled up 52 yuan worth of gas at the gas station"
+  },
+  {
+    "id": "rec456",
+    "Spend": 100,
+    "Store": "Supermarket",
+    "Item": "Milk",
+    "DateTime": "2025-03-16",
+    "Memo": "Bought 100 yuan worth of milk at the supermarket" 
+  }
 ]
+```
+
+#### Filtering Records
+
+Use formulas to filter records. For formula syntax, refer to: [Getting Started with Formulas](https://support.airtable.com/v1/docs/getting-started-with-formulas)
+Example: To query records with a price equal to or exceeding 20 yuan, use:
+![formulas](_assets/formulas.png)
+
+Result:
+
+```json
+[{"id": "rect1Vk9iOAHPfEk7", "Store": "Starbucks", "Item": "Coffe", "Spend": 20, "DateTime": "2025-03-13T16:00:00.000Z"}, {"id": "recTQXBclb1Fdm4a2", "Item": "Electronic heater", "Spend": 200, "DateTime": "2025-03-15T16:00:00.000Z"}, {"id": "recJUGiFffO6934P9", "Store": "JD", "Item": "SSD", "Spend": 200, "DateTime": "2025-03-15T16:00:00.000Z"}]
+```
+
+#### Sorting
+
+Use sort to order records. Supported sorting methods: ASC and DESC. Multiple fields can be sorted by separating them with commas. Prefix a field with `-` for descending order.
+Example: Sort by Spend (descending) and DateTime (ascending):
+![sort](_assets/sort.png)
+
+Result:
+
+```json
+[{"id": "recTQXBclb1Fdm4a2", "Item": "Electronic heater", "Spend": 200, "DateTime": "2025-03-15T16:00:00.000Z"}, {"id": "recJUGiFffO6934P9", "Store": "JD", "Item": "SSD", "Spend": 200, "DateTime": "2025-03-15T16:00:00.000Z"}, {"id": "rect1Vk9iOAHPfEk7", "Store": "Starbucks", "Item": "Coffe", "Spend": 20, "DateTime": "2025-03-13T16:00:00.000Z"}]
+```
+
+#### Returning Specific Fields
+
+Use fields to specify returned fields. Multiple fields are comma-separated.
+Example: Return Store, Item, Spend, and DateTime:
+
+![fields](_assets/fields.png)
+
+Result:
+
+```json
+[{"id": "recTQXBclb1Fdm4a2", "Item": "Electronic heater", "Spend": 200, "DateTime": "2025-03-15T16:00:00.000Z"}, {"id": "recJUGiFffO6934P9", "Store": "JD", "Item": "SSD", "Spend": 200, "DateTime": "2025-03-15T16:00:00.000Z"}, {"id": "rect1Vk9iOAHPfEk7", "Store": "Starbucks", "Item": "Coffe", "Spend": 20, "DateTime": "2025-03-13T16:00:00.000Z"}]
 ```
