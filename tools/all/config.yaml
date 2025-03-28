@@ -107,7 +107,4 @@ parameters:
     form: llm
 extra:
   python:
-    source: tools/query/invoke.py
-extra:
-  python:
     source: tools/all/invoke.py
